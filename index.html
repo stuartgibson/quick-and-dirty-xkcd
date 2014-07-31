@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <title>xkcd</title>
+  </head>
+  <body>
+    <div style="text-align: center; display: inline-block; padding: 1em; font-family: helvetica; color: #444;background-color: white;">
+      <img src="" id="comic">
+      <div id="alt" style="margin-top: 1em;"></div>
+    </div>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>
+    <script>
+      $(document).ready(function(){
+        $.get( "http://xkcd.com/info.0.json", function( data ) {
+          $("#comic").attr("src", data.img);
+          $("#alt").html(data.alt);
+        });
+      });
+    </script>
+  </body>
+</html>
